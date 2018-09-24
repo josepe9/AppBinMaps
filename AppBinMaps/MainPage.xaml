@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="AppBinMaps.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AppBinMaps"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d" >
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Maps:MapControl x:Name="myMap"  Grid.ColumnSpan="2"
+                         MapServiceToken="rM8ALxfMcU2VOCJwx2mW~SeYm6Uoncat3ctCBSzt-mA~AsNH4OMpMkc7cdu370ncUjx_U6USwQoQZXVlk_um0MmsbggpfTTJ81xynCYr4Rrs"
+                         MapTapped="MyMap_MapTapped"/>
+        <ScrollViewer HorizontalScrollMode="Disabled" VerticalScrollMode="Auto">
+            <StackPanel x:Name="myCtrlPanel" Grid.Column="0" Orientation="Vertical" Margin="5,5,25,5">
+                <StackPanel x:Name="mySearchsyscafe" Orientation="Vertical">
+                    <Button x:Name="btnsyscafe" Content="SysCafé" HorizontalAlignment="Stretch" Margin="0" Click="Syscafe_click" />
+                    <ComboBox x:Name="cmbSedes" Margin="0" SelectedIndex="0" HorizontalAlignment="Stretch" GotFocus="Sedes" >
+                        <ComboBoxItem Content="Sedes" IsSelected="True"  />
+                        <ComboBoxItem Content="Principal" IsSelected="False"  />
+                        <ComboBoxItem Content="Ibagué Ventas" IsSelected="False"  />
+                        <ComboBoxItem Content="Pereira" IsSelected="False"/>
+                        <ComboBoxItem Content="Neiva" IsSelected="False"/>
+                        <ComboBoxItem Content="Eje Cafetero" IsSelected="False"/>
+                        <ComboBoxItem Content="Bogotá" IsSelected="False"/>
+                        <ComboBoxItem Content="Boyacá" IsSelected="False"/>
+                        <ComboBoxItem Content="Medellín - chocó" IsSelected="False"/>
+                        <ComboBoxItem Content="Putumayo" IsSelected="False"/>
+                        <ComboBoxItem Content="Pasto" IsSelected="False"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbEstilos" Margin="0" SelectedIndex="0" HorizontalAlignment="Stretch" GotFocus="vistas"  >
+                        <ComboBoxItem Content="Tipo de mapas" IsSelected="True"  />
+                        <ComboBoxItem Content="Road" IsSelected="False"  />
+                        <ComboBoxItem Content="Aereo" IsSelected="False"/>
+                        <ComboBoxItem Content="Road claro" IsSelected="False"/>
+                        <ComboBoxItem Content="Aereo direcciones" IsSelected="False"/>
+                        <ComboBoxItem Content="Road contraste alto" IsSelected="False"/>
+                    </ComboBox>
+                    <ComboBox x:Name="cmbVista" Margin="0" SelectedIndex="0" HorizontalAlignment="Stretch" >
+                        <ComboBoxItem Content="Vista" IsSelected="True"  />
+                        <ComboBoxItem Content="Streetview" IsSelected="False"  />
+                        <ComboBoxItem Content="3D" IsSelected="False"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel x:Name="mySearchPanel" Orientation="Vertical">
+                    <Button x:Name="btnRuta" Content="Ruta" HorizontalAlignment="Stretch" Margin="0" Click="BtnRuta_click" />
+                    <TextBlock Text="Buscar" FontSize="16" Margin="3,0"/>
+                    <TextBox x:Name="txtWhere" Margin="3,0"/>
+                    <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Stretch" Margin="0" Click="BtnSearch_Click"/>
+                </StackPanel>
+                
+                <StackPanel x:Name="myDirectionsPanel" Orientation="Vertical" Margin="0,50,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+        
+    </Grid>
+
+    <Page.BottomAppBar>
+        <AppBar IsOpen="True" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton Icon="Map" Label="Location" Click="AppBarButton_Click"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
+
+
+</Page>
